@@ -88,12 +88,13 @@ num_test_samples = len(predicted_values)
 predicted_values = np.reshape(predicted_values, (num_test_samples,1))
 
 # plot the results
-plt.figure()
+fig = plt.figure()
 plt.plot(y_test + shifted_value)
 plt.plot(predicted_values + shifted_value)
 plt.xlabel('Date')
 plt.ylabel('VIX')
 plt.show()
+fig.savefig('output_prediction.jpg', bbox_inches='tight')
 
 # save the result into txt file
 test_result = zip(predicted_values, y_test) + shifted_value
